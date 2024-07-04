@@ -3,6 +3,7 @@ jest
 node_modules
 .env
 yarn-error.log
+log
 
 # yarn recommended ignore files (according to yarn official docs)
 .pnp.*
