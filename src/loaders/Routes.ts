@@ -3,7 +3,7 @@ import { Express, Router } from "express";
 import glob from 'fast-glob';
 import fs from 'fs';
 import path from 'path';
-import logger from "../service/logger";
+import logger from "../service/Logger";
 
 const BASE_DIR = path.join(__dirname, '../../');
 

@@ -1,6 +1,6 @@
-import ExpressLoader from "./loaders/express";
-import RoutesLoader from "./loaders/routes";
-import logger from "./service/logger";
+import ExpressLoader from "./loaders/Express";
+import RoutesLoader from "./loaders/Routes";
+import logger from "./service/Logger";
 
 try {
   const server = new ExpressLoader();

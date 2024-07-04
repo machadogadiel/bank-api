@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import logger from "../service/logger";
+import logger from "../service/Logger";
 
 export default class ErrorMiddleware {
   static handler(

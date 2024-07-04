@@ -1,10 +1,10 @@
 import express, { Express } from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import logger from "../service/logger";
+import logger from "../service/Logger";
 
-import RoutesMiddleware from "../middleware/routes";
-import ErrorMiddleware from "../middleware/error";
+import RoutesMiddleware from "../middleware/Routes";
+import ErrorMiddleware from "../middleware/Error";
 
 export default class ExpressLoader {
   app: express.Express;
