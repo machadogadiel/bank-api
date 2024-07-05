@@ -36,7 +36,7 @@ export default class EventService {
   withdraw(originAccountId: string, amount = 0) {
     const account = new AccountService().findAccount(originAccountId);
 
-    if (!account) throw new Error("Couldn't find account to withdraw");
+    if (!account) return;
 
     account.balance -= amount;
 
@@ -62,9 +62,8 @@ export default class EventService {
       throw new Error("Transfer must have an origin and destination");
     }
 
-    const origin = this.withdraw(originAccountId, amount)
-    const destination = this.deposit(destinationAccountId, amount)
-
+    const origin = this.withdraw(originAccountId, amount);
+    const destination = this.deposit(destinationAccountId, amount);
 
     return [origin, destination];
   }
