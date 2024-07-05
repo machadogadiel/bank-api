@@ -21,7 +21,7 @@ export default class RoutesLoader {
     for (const file of files) {
       if (
         fs.statSync(file).isFile() &&
-        path.extname(file).toLowerCase() === ".ts"
+        (path.extname(file).toLowerCase() === ".js" || path.extname(file).toLowerCase() === ".ts")
       ) {
         try {
           const routeModule = await import(path.resolve(file));

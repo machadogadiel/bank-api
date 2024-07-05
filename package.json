@@ -1,7 +1,7 @@
 {
   "name": "ebanx-assignment",
   "version": "1.0.0",
-  "main": "src/app.ts",
+  "main": "src/App.ts",
   "license": "MIT",
   "packageManager": "yarn@4.3.1",
   "dependencies": {
@@ -13,8 +13,8 @@
   },
   "scripts": {
     "build": "npx tsc",
-    "start": "node dist/app.js",
-    "dev": "nodemon src/app.ts"
+    "start": "ts-node dist/App.js  --loader",
+    "dev": "nodemon src/App.ts"
   },
   "devDependencies": {
     "@types/body-parser": "^1",

@@ -5,6 +5,7 @@ import logger from "../service/Logger";
 
 import RoutesMiddleware from "../middleware/Routes";
 import ErrorMiddleware from "../middleware/Error";
+import RoutesLoader from "./Routes";
 
 export default class ExpressLoader {
   app: express.Express;
@@ -15,17 +16,27 @@ export default class ExpressLoader {
     const app: Express = express();
     const port = process.env.PORT || 3000;
 
-    this.app = app
+    this.app = app;
 
     // app preferences
     app.disable("x-powered-by");
-    
+
     // middleware declaration
     app.use(ErrorMiddleware.handler);
     app.use(RoutesMiddleware.handler);
     app.use(morgan("dev"));
     app.use(express.json());
 
+    const routes = new RoutesLoader();
+
+    routes
+      .fromFiles("src/routes/{*.js,*.ts}")
+      .then((r) => {
+        routes.mount(app, r);
+      })
+      .catch((error) => {
+        logger.error(error);
+      });
     // listen to configured port
     app.listen(port, () => {
       logger.info(`[Server]: Server is running at http://localhost:${port}`);
@@ -33,6 +44,6 @@ export default class ExpressLoader {
   }
 
   get ExpressInstance() {
-    return this.app
+    return this.app;
   }
 }
