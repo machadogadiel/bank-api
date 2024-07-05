@@ -11,7 +11,8 @@ export default class RoutesMiddleware {
       "Access-Control-Allow-Headers",
       "X-Requested-With, content-type"
     );
-
+    res.setHeader("ngrok-skip-browser-warning", "1")
+    res.setHeader('Content-Type', 'application/json');
     next();
   }
 }
