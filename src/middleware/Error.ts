@@ -2,12 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import logger from "../service/Logger";
 
 export default class ErrorMiddleware {
-  static handler(
-    error: Error,
-    _: Request,
-    res: Response,
-    next: NextFunction
-  ) {
+  static handler(error: Error, _: Request, res: Response, next: NextFunction) {
     let parsedError;
 
     // Attempt to gracefully parse error object

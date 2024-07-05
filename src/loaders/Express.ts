@@ -19,11 +19,12 @@ export default class ExpressLoader {
 
     // app preferences
     app.disable("x-powered-by");
-
+    
     // middleware declaration
-    app.use(morgan("dev"));
     app.use(ErrorMiddleware.handler);
     app.use(RoutesMiddleware.handler);
+    app.use(morgan("dev"));
+    app.use(express.json());
 
     // listen to configured port
     app.listen(port, () => {
